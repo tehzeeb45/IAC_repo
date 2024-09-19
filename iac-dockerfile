@@ -1,0 +1,37 @@
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+# Update package list and install necessary packages
+RUN apt-get update -y && \
+    apt-get install -y nginx unzip curl
+
+# Set the working directory
+WORKDIR /opt
+
+# Add the ZIP file containing your repository to the container
+ADD https://github.com/tehzeeb45/IAC_repo/archive/refs/heads/main.zip /opt/repo.zip
+
+# Unzip the added file and move the content
+RUN unzip /opt/repo.zip -d /opt/ && \
+    mv /opt/IAC_repo-main/index.html /usr/share/nginx/html/ && \
+    rm /opt/repo.zip
+
+# Copy the local iac-textfile to /opt
+COPY iac-textfile /opt/iac.textfile
+
+# Remove the default Nginx configuration if it exists
+RUN [ -f /etc/nginx/sites-enabled/default ] && rm /etc/nginx/sites-enabled/default || true
+
+# Copy the local nginx.conf to /etc/nginx/sites-available/default
+COPY nginx.conf /etc/nginx/sites-available/default
+
+# Create a symlink for the custom configuration
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+
+
