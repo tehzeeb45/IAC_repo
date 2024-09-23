@@ -1,0 +1,17 @@
+version: '2'
+services:
+  frontend:
+    build:
+      context: /home/tehzeeb/dockerfile
+      dockerfile: iac-dockerfile
+      no_cache: true
+    image: iac-website   
+    container_name: iac-frontend-websitedemo
+    hostname: iac-frontend-websitedemo
+    ports:
+      - "4440:80"
+      - "4450:80"
+    volumes:
+      - /home/tehzeeb/frontend_data:/var/www/html_test
+
+
