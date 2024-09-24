@@ -2,11 +2,9 @@
 
 ## 1. Navigate to the SSH Configuration Directory:
 First, access the SSH configuration files.
-```bash
 cd /etc/ssh/
 ls
 ## 2. Navigate to sshd_config.d Directory:
-# The sshd_config.d directory contains additional SSH configuration files. Go to that directory and list its contents.
 cd sshd_config.d
 ls
 ## 3. Edit SSH Configuration Files:
