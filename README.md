@@ -5,16 +5,16 @@ First, access the SSH configuration files.
 ```bash
 cd /etc/ssh/
 ls
-#  Navigate to sshd_config.d Directory:
+## 2. Navigate to sshd_config.d Directory:
 # The sshd_config.d directory contains additional SSH configuration files. Go to that directory and list its contents.
 cd sshd_config.d
 ls
-# Edit SSH Configuration Files
+## 3. Edit SSH Configuration Files:
 sudo vim 60-some-config.conf
-# You can add or modify SSH configuration options like:
+## 4. You can add or modify SSH configuration options like:
 PasswordAuthentication yes
-# Change the Password for the VM User:
+## 5. Change the Password for the VM User:
 sudo passwd ubuntu
-# Restart the SSH Service:
+## 6. Restart the SSH Service:
 sudo systemctl restart ssh
 
