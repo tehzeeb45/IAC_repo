@@ -1,4 +1,4 @@
-# Steps to Change the SSH Configuration and Update Password in a VM
+# Q1 Steps to Change the SSH Configuration and Update Password in a VM
 
 ## 1. Navigate to the SSH Configuration Directory:
 First, access the SSH configuration files.
@@ -15,5 +15,5 @@ PasswordAuthentication yes
 sudo passwd ubuntu
 ## 6. Restart the SSH Service:
 sudo systemctl restart ssh
-# Identity and access Management system(IAM)
+# Q2 Identity and access Management system(IAM)
 Define: AWS identity and access Management is a web service that help you security control access to AWS resources you used IAM to control who is authenticated(signin) and authorized(has permission) to ues resources.
