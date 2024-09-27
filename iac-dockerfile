@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install -y nginx unzip
 # Set the working directory
 WORKDIR /opt
-COPY /home/tehzeeb/iac-textfile /opt/iac-textfile
+mv /home/tehzeeb/iac-textfile /opt/iac-textfile
 ADD https://github.com/tehzeeb45/IAC_repo/archive/refs/heads/main.zip  /opt/repo.zip
 RUN unzip /opt/repo.zip -d /opt/
 RUN mv /opt/IAC_repo-main/index.html /var/www/html/
