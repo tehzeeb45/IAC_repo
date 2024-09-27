@@ -1,17 +1,11 @@
-
 FROM ubuntu:latest
 RUN apt-get update
 RUN apt-get install -y nginx unzip
 # Set the working directory
 WORKDIR /opt
-mv /home/tehzeeb/iac-textfile /opt/iac-textfile
 ADD https://github.com/tehzeeb45/IAC_repo/archive/refs/heads/main.zip  /opt/repo.zip
 RUN unzip /opt/repo.zip -d /opt/
 RUN mv /opt/IAC_repo-main/index.html /var/www/html/
 RUN rm /opt/repo.zip
-
-
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
-
-
+CMD ["nginx", "-g", "daemon off;"] 
