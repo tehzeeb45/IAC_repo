@@ -1,0 +1,12 @@
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y nginx
+# Set the working directory
+WORKDIR /opt
+ADD https://github.com/tehzeeb45/IAC_repo.git /opt
+RUN cp ./index.html /var/www/html
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+~                                                                                                                                                            
+~                                                                                                                                                            
+~         
