@@ -10,7 +10,6 @@ services:
     hostname: iac-frontend-websitedemo
     ports:
       - "4440:80"
-    volumes:
-      - /home/tehzeeb/frontend_data:/var/www/html_test
+    
 
 
