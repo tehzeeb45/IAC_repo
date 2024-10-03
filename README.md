@@ -22,7 +22,7 @@ Define: AWS identity and access Management is a web service that help you securi
 sudo usermod -aG docker jenkins
 
 sudo systemctl restart jenkins
-# Terraform
+  # Terraform
 ## Q4 What is Terraform?
 
 Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp. It allows users to define and manage infrastructure using a declarative configuration language called HashiCorp Configuration Language (HCL) or JSON. With Terraform, you can automate the provisioning and management of resources across various cloud providers (such as AWS, Azure, Google Cloud), as well as on-premises data centers.
@@ -43,3 +43,25 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
  ## Project Purpose:
 "Automated Deployment of a Web and CI/CD Server on AWS EC2 with Terraform"
  ## Project Components:
+ ## (1) EC2 Instance:
+ AMI: Ubuntu 24.04 LTS for running both the web server (e.g., Nginx) and Jenkins.
+Instance Type: t2.micro, suitable for low-cost, small-scale workloads.
+Key Pair: Provides SSH access to manage the instance.
+User Data Script: Automatically installs necessary services (Nginx, Jenkins, Docker) on instance startup.
+## (2)Security Group:
+Open Ports:
+Port 80 (HTTP): For website or web app access.
+Port 443 (HTTPS): For secure web access.
+Port 22 (SSH): For secure remote access to the instance.
+Port 8080 (Jenkins): For CI/CD tool access.
+Port 4440 (Custom Port): For additional applications.
+ ## (3) Automation:
+
+User Data: A script for auto-installing Nginx (for web hosting), Jenkins (for CI/CD), and Docker (for containerized deployments).
+Public IP Output: Terraform outputs the public IP for easy access to the deployed services.
+
+
+
+
+
+ 
