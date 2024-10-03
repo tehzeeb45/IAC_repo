@@ -45,8 +45,10 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
  ## Project Components:
  ## (1) EC2 Instance:
  **AMI** : Ubuntu 24.04 LTS for running both the web server (e.g., Nginx) and Jenkins.
+
  
 **Instance Type** : t2.micro, suitable for low-cost, small-scale workloads.
+
 
 **Key Pair** : Provides SSH access to manage the instance.
 **User Data Script** : Automatically installs necessary services (Nginx, Jenkins, Docker) on instance startup.
