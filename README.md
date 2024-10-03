@@ -27,7 +27,7 @@ sudo systemctl restart jenkins
 
 Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp. It allows users to define and manage infrastructure using a declarative configuration language called HashiCorp Configuration Language (HCL) or JSON. With Terraform, you can automate the provisioning and management of resources across various cloud providers (such as AWS, Azure, Google Cloud), as well as on-premises data centers.
 
-### Why use Terraform?
+## Why use Terraform?
 
 - **Automates infrastructure**: Manages cloud and on-prem resources efficiently.
 - **Ensures consistency**: Uses Infrastructure as Code for repeatable deployments.
@@ -84,26 +84,26 @@ This block configures the AWS provider, allowing Terraform to interact with AWS 
 resource "aws_security_group" "First_security_group" {
   name = "TestSecurityGroup"
 
-  # Allow HTTP on port 80
+  ## Allow HTTP on port 80
   ingress { ... }
   
-  # Allow HTTPS on port 443
+  ## Allow HTTPS on port 443
   ingress { ... }
 
-  # Allow SSH on port 22
+  ## Allow SSH on port 22
   ingress { ... }
 
-  # Allow Jenkins on port 8080
+  ## Allow Jenkins on port 8080
   ingress { ... }
 
-  # Allow custom container port (4440)
+  ## Allow custom container port (4440)
   ingress { ... }
 
   # Allow all outbound traffic
   egress { ... }
 }
 This resource creates a security group with rules that control inbound and outbound traffic for an EC2 instance
-# 3. AWS EC2 Instance Resource
+## 3. AWS EC2 Instance Resource
 resource "aws_instance" "First_instance" {
 
   ami                         = "ami-056jvu768r89y654"
