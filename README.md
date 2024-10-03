@@ -68,7 +68,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 **User Data:** A script for auto-installing Nginx (for web hosting), Jenkins (for CI/CD), and Docker (for containerized deployments).
 
 **Public IP Output:** Terraform outputs the public IP for easy access to the deployed services.
- # 1. AWS Provider Block
+ ## 1. AWS Provider Block
 provider "aws" {
 
   region     = "us-east-1"
@@ -80,8 +80,57 @@ provider "aws" {
 }
 
 This block configures the AWS provider, allowing Terraform to interact with AWS services.
+ ## 2. Security Group Resource
+resource "aws_security_group" "First_security_group" {
+  name = "TestSecurityGroup"
 
+  # Allow HTTP on port 80
+  ingress { ... }
+  
+  # Allow HTTPS on port 443
+  ingress { ... }
 
+  # Allow SSH on port 22
+  ingress { ... }
+
+  # Allow Jenkins on port 8080
+  ingress { ... }
+
+  # Allow custom container port (4440)
+  ingress { ... }
+
+  # Allow all outbound traffic
+  egress { ... }
+}
+This resource creates a security group with rules that control inbound and outbound traffic for an EC2 instance
+# 3. AWS EC2 Instance Resource
+resource "aws_instance" "First_instance" {
+
+  ami                         = "ami-056jvu768r89y654"
+  
+  instance_type               = "t2.micro"
+  
+  key_name                    = "XXXXXXX"
+  
+  vpc_security_group_ids      = [aws_security_group.First_security_group.id]
+  
+  user_data                   = file("${path.module}/user-data.sh")
+  
+  tags = {
+  
+    Name = "instance_from_terraform"
+  }
+}
+
+This resource launches an AWS EC2 instance with specific configurations.
+## 4. Output Block
+output "instance_public_ip" {
+
+  value = aws_instance.First_instance.public_ip
+  
+}
+
+This block outputs the public IP address of the EC2 instance after it’s created, making it easier to connect to or use the instance.
 
 
  
