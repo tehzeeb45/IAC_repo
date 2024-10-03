@@ -38,4 +38,8 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 - **`terraform plan`**: Shows an execution plan of changes.
 - **`terraform apply`**: Applies the changes to reach the desired state.
 - **`terraform destroy`**:  Applies the changes to reach the desired state.
- 
+ ## Terraform Project
+ To create a project using Terraform for deploying an AWS infrastructure
+ ## Project Purpose:
+"Automated Deployment of a Web and CI/CD Server on AWS EC2 with Terraform"
+ ## Project Components:
