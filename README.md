@@ -51,6 +51,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 
 
 **Key Pair** : Provides SSH access to manage the instance.
+
 **User Data Script** : Automatically installs necessary services (Nginx, Jenkins, Docker) on instance startup.
 ## (2)Security Group:
 **Open Ports**:
