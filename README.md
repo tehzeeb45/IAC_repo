@@ -68,6 +68,8 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 **User Data:** A script for auto-installing Nginx (for web hosting), Jenkins (for CI/CD), and Docker (for containerized deployments).
 
 **Public IP Output:** Terraform outputs the public IP for easy access to the deployed services.
+## Project Detail
+
  ## 1. AWS Provider Block
 provider "aws" {
 
