@@ -84,22 +84,22 @@ This block configures the AWS provider, allowing Terraform to interact with AWS 
 resource "aws_security_group" "First_security_group" {
   name = "TestSecurityGroup"
 
-  ## Allow HTTP on port 80
+   Allow HTTP on port 80
   ingress { ... }
   
-  ## Allow HTTPS on port 443
+  Allow HTTPS on port 443
   ingress { ... }
 
-  ## Allow SSH on port 22
+   Allow SSH on port 22
   ingress { ... }
 
-  ## Allow Jenkins on port 8080
+   Allow Jenkins on port 8080
   ingress { ... }
 
-  ## Allow custom container port (4440)
+   Allow custom container port (4440)
   ingress { ... }
 
-  # Allow all outbound traffic
+   Allow all outbound traffic
   egress { ... }
 }
 This resource creates a security group with rules that control inbound and outbound traffic for an EC2 instance
