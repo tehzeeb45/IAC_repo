@@ -43,4 +43,3 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 sudo usermod -aG docker jenkins
 
 sudo systemctl restart jenkins
->>>>>>> 70581b2f245a04206db0825635f7ed45cae6976b
