@@ -19,4 +19,5 @@ sudo systemctl restart ssh
 Define: AWS identity and access Management is a web service that help you security control access to AWS resources you used IAM to control who is authenticated(signin) and authorized(has permission) to ues resources.
 # Q3 Command Check if Jenkins is in the Docker group
 sudo usermod -aG docker jenkins
+
 sudo systemctl restart jenkins
