@@ -42,76 +42,49 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 "Automated Deployment of a Web and CI/CD Server on AWS EC2 with Terraform"
  ## Project Components:
  ## (1) EC2 Instance:
- **AMI** : Ubuntu 24.04 LTS for running both the web server (e.g., Nginx) and Jenkins.
-
-**Instance Type** : t2.micro, suitable for low-cost, small-scale workloads.
-
-**Key Pair** : Provides SSH access to manage the instance.
-
-**User Data Script** : Automatically installs necessary services (Nginx, Jenkins, Docker) on instance startup.
+-  **AMI** : Ubuntu 24.04 LTS for running both the web server (e.g., Nginx) and Jenkins.
+- **Instance Type** : t2.micro, suitable for low-cost, small-scale workloads.
+- **Key Pair** : Provides SSH access to manage the instance.
+- **User Data Script** : Automatically installs necessary services (Nginx, Jenkins, Docker) on instance startup.
 ## (2)Security Group:
 **Open Ports**:
-**Port 80 (HTTP):** For website or web app access.
-
-**Port 443 (HTTPS):** For secure web access.
-
-**Port 22 (SSH):** For secure remote access to the instance.
-
-**Port 8080 (Jenkins):** For CI/CD tool access.
-
-**Port 4440 (Custom Port):** For additional applications.
-
+- **Port 80 (HTTP):** For website or web app access.
+- **Port 443 (HTTPS):** For secure web access.
+- **Port 22 (SSH):** For secure remote access to the instance.
+- **Port 8080 (Jenkins):** For CI/CD tool access.
+- **Port 4440 (Custom Port):** For additional applications.
  ## (3) Automation:
-
-**User Data:** A script for auto-installing Nginx (for web hosting), Jenkins (for CI/CD), and Docker (for containerized deployments).
-
-**Public IP Output:** Terraform outputs the public IP for easy access to the deployed services.
+- **User Data:** A script for auto-installing Nginx (for web hosting), Jenkins (for CI/CD), and Docker (for containerized deployments).
+- **Public IP Output:** Terraform outputs the public IP for easy access to the deployed services.
 ## Project Detail
-
  ## 1. AWS Provider Block
-provider "aws" {
-
-  region     = "us-east-1"
-  
-  access_key = "acces key"
-  
-  secret_key = "secret key"
-  
-}
+- provider "aws" {
+ - region     = "us-east-1"
+ - access_key = "acces key"
+ -  secret_key = "secret key"
+- }
 
 This block configures the AWS provider, allowing Terraform to interact with AWS services.
  ## 2. Security Group Resource
-resource "aws_security_group" "First_security_group" {
-  name = "TestSecurityGroup"
+- resource "aws_security_group" "First_security_group" {
+ -  name = "TestSecurityGroup"
+   - Allow HTTP on port 80
+ - ingress { ... }
+ - Allow HTTPS on port 443
+  - ingress { ... }
+  - Allow SSH on port 22
+ - ingress { ... }
+  -  Allow Jenkins on port 8080
+ - ingress { ... }
+ -  Allow custom container port (4440) 
+ - ingress { ... }
+  - Allow all outbound traffic
+  - egress { ... }
+- }
 
-   Allow HTTP on port 80
-   
-  ingress { ... }
-  
-  Allow HTTPS on port 443
-  
-  ingress { ... }
-
-   Allow SSH on port 22
-   
-  ingress { ... }
-
-   Allow Jenkins on port 8080
-   
-  ingress { ... }
-
-   Allow custom container port (4440)
-   
-  ingress { ... }
-
-   Allow all outbound traffic
-   
-  egress { ... }
-}
 This resource creates a security group with rules that control inbound and outbound traffic for an EC2 instance
 ## 3. AWS EC2 Instance Resource
-resource "aws_instance" "First_instance" {
-
+- resource "aws_instance" "First_instance" {
   ami                         = "ami-056jvu768r89y654"
   
   instance_type               = "t2.micro"
