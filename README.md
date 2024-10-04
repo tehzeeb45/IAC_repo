@@ -20,7 +20,6 @@ Define: AWS identity and access Management is a web service that help you securi
 <<<<<<< HEAD
 # Q3 Command Check Jenkins is in the Docker group:
 sudo usermod -aG docker jenkins
-
 sudo systemctl restart jenkins
   # Terraform
 ## Q4 What is Terraform?
