@@ -58,33 +58,33 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 - **Public IP Output:** Terraform outputs the public IP for easy access to the deployed services.
 ## Project Detail
  ## 1. AWS Provider Block
-- provider "aws" {
- - region     = "us-east-1"
- - access_key = "acces key"
- -  secret_key = "secret key"
-- }
+ provider "aws" {
+  region     = "us-east-1"
+  access_key = "acces key"
+   secret_key = "secret key"
+ }
 
 This block configures the AWS provider, allowing Terraform to interact with AWS services.
  ## 2. Security Group Resource
-- resource "aws_security_group" "First_security_group" {
- -  name = "TestSecurityGroup"
-   - Allow HTTP on port 80
- - ingress { ... }
- - Allow HTTPS on port 443
-  - ingress { ... }
-  - Allow SSH on port 22
- - ingress { ... }
-  -  Allow Jenkins on port 8080
- - ingress { ... }
- -  Allow custom container port (4440) 
- - ingress { ... }
-  - Allow all outbound traffic
-  - egress { ... }
-- }
+ resource "aws_security_group" "First_security_group" {
+   name = "TestSecurityGroup"
+    Allow HTTP on port 80
+  ingress { ... }
+  Allow HTTPS on port 443
+   ingress { ... }
+   Allow SSH on port 22
+  ingress { ... }
+    Allow Jenkins on port 8080
+  ingress { ... }
+   Allow custom container port (4440) 
+  ingress { ... }
+   Allow all outbound traffic
+   egress { ... }
+ }
 
 This resource creates a security group with rules that control inbound and outbound traffic for an EC2 instance
 ## 3. AWS EC2 Instance Resource
-- resource "aws_instance" "First_instance" {
+ resource "aws_instance" "First_instance" {
   ami                         = "ami-056jvu768r89y654"
   
   instance_type               = "t2.micro"
