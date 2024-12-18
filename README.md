@@ -124,10 +124,9 @@ output "instance_public_ip" {
   value = aws_instance.First_instance.public_ip
   
 }
-## IF WE SSH EC2 IN COMMAND TERMINAL MEEANS WINDOW
+## 5. IF WE SSH EC2 IN COMMAND TERMINAL MEEANS WINDOW
 COMMAND: ssh -i (key name) (public DNS)
 
-This block outputs the public IP address of the EC2 instance after it’s created, making it easier to connect to or use the instance.
 
 
  
