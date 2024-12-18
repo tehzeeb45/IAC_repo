@@ -126,6 +126,8 @@ output "instance_public_ip" {
 }
 ## 5. IF WE SSH EC2 IN COMMAND TERMINAL MEEANS WINDOW
 COMMAND: ssh -i (key name) (public DNS)
+Example:
+ssh -i "new-key-pair.pem" ubuntu@ec2-18-234-218-19.compute-1.amazonaws.com
 
 
 
