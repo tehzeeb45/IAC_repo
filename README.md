@@ -20,8 +20,8 @@ Define: AWS identity and access Management is a web service that help you securi
 # Q3 Command Check Jenkins is in the Docker group:
  - sudo usermod -aG docker jenkins
  - sudo systemctl restart jenkins
-  # Terraform
-## Q4 What is Terraform?
+  # Q4 Terraform
+##  What is Terraform?
 
 Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp. It allows users to define and manage infrastructure using a declarative configuration language called HashiCorp Configuration Language (HCL) or JSON. With Terraform, you can automate the provisioning and management of resources across various cloud providers (such as AWS, Azure, Google Cloud), as well as on-premises data centers.
 
@@ -124,13 +124,9 @@ output "instance_public_ip" {
   value = aws_instance.First_instance.public_ip
   
 }
-## 5. IF WE SSH EC2 IN COMMAND TERMINAL MEEANS WINDOW
-COMMAND: ssh -i (key name) (public DNS)
-
-Example:
-
-ssh -i "new-key-pair.pem" ubuntu@ec2-18-234-218-19.compute-1.amazonaws.com
-
+# Q5 AWS 
+# First service of AWS
+# IAM
 
 
  
